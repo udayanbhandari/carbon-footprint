@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900;
+  }
+
+  /* Accessible focus rings globally */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  .bg-mesh {
+    background-color: #f0fdf4; /* brand-50 */
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(140, 60%, 90%, 0.8) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(160, 60%, 90%, 0.8) 0, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(180, 60%, 90%, 0.8) 0, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(150, 60%, 90%, 0.8) 0, transparent 50%);
+    background-attachment: fixed;
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 24px -4px rgba(34, 197, 94, 0.25);
+  }
+  
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer components {
+  /* No hardcoded styles on components, but reusable accessible utilities */
+  .prose-indigo a {
+    @apply text-brand-600 hover:text-brand-800 underline decoration-brand-300 underline-offset-2 transition-colors;
+  }
+}
